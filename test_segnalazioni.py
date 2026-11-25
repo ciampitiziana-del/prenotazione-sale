@@ -19,10 +19,6 @@ class TestSegnalazioni(unittest.TestCase):
 
         self.assertIs(agenda.prenotazione(identificativo), seconda)
 
-
-if __name__ == "__main__":
-    unittest.main()
-
     def test_prenotazione_a_capienza_massima(self):
         oggi = date(2026, 11, 10)
         agenda = Agenda()
@@ -32,3 +28,7 @@ if __name__ == "__main__":
         identificativo = agenda.prenota(prenotazione, oggi=oggi)
 
         self.assertIs(agenda.prenotazione(identificativo), prenotazione)
+
+
+if __name__ == "__main__":
+    unittest.main()
