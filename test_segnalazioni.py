@@ -22,3 +22,13 @@ class TestSegnalazioni(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+    def test_prenotazione_a_capienza_massima(self):
+        oggi = date(2026, 11, 10)
+        agenda = Agenda()
+        agenda.aggiungi_sala(Sala("R1", "Sala riunioni", 10))
+        prenotazione = Prenotazione("R1", oggi, "09:00", "10:00", "Rossi", 10)
+
+        identificativo = agenda.prenota(prenotazione, oggi=oggi)
+
+        self.assertIs(agenda.prenotazione(identificativo), prenotazione)
